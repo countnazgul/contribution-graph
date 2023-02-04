@@ -6,6 +6,7 @@ const { Canvas, Image } = require("canvas");
 const userName = "countnazgul";
 const startYear = 2008;
 const onlyCurrentYear = true;
+const theme = "dark"; // or light
 
 const totalYears = new Date().getFullYear() - startYear;
 const years = onlyCurrentYear
@@ -24,6 +25,13 @@ const years = onlyCurrentYear
           { waitUntil: "networkidle0" }
         )
         .catch((err) => console.log(err));
+      await page.emulateMediaFeatures([
+        {
+          name: "prefers-color-scheme",
+          value: theme,
+        },
+      ]);
+
       await page.waitForSelector(".js-calendar-graph-svg");
       const element = await page.$(".js-calendar-graph-svg");
       await element.screenshot({ path: `./images/${year}.png` });
