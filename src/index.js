@@ -23,7 +23,7 @@ const years = Array.from(
         .catch((err) => console.log(err));
       await page.waitForSelector(".js-calendar-graph-svg");
       const element = await page.$(".js-calendar-graph-svg");
-      await element.screenshot({ path: `../images/${year}.png` });
+      await element.screenshot({ path: `./images/${year}.png` });
       await page.close();
       console.log(`${year} complete`);
     })
@@ -43,6 +43,6 @@ const years = Array.from(
     height: years.length * 115,
   }).then((b64) => {
     const buffer = Buffer.from(b64.split(",")[1], "base64");
-    fs.writeFileSync("../images/combined.png", buffer);
+    fs.writeFileSync("./images/combined.png", buffer);
   });
 })();
