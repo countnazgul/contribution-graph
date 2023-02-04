@@ -31,7 +31,7 @@ const years = Array.from(
   await browser.close();
 
   const y = years.map((y, i) => ({
-    src: `../images/${y}.png`,
+    src: `./images/${y}.png`,
     x: 0,
     y: i * 115,
   }));
