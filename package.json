@@ -1,0 +1,18 @@
+{
+  "name": "github-contributions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.11.0",
+    "merge-images": "^2.0.0",
+    "puppeteer": "^19.4.1"
+  }
+}
