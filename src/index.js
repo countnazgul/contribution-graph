@@ -3,11 +3,14 @@ const puppeteer = require("puppeteer");
 const mergeImages = require("merge-images");
 const { Canvas, Image } = require("canvas");
 
-const totalYears = new Date().getFullYear() - 2008;
-const years = Array.from(
-  { length: totalYears + 1 },
-  (_, i) => i + 2008
-).reverse();
+const userName = "countnazgul";
+const startYear = 2008;
+const onlyCurrentYear = true;
+
+const totalYears = new Date().getFullYear() - startYear;
+const years = onlyCurrentYear
+  ? [new Date().getFullYear()]
+  : Array.from({ length: totalYears + 1 }, (_, i) => i + startYear).reverse();
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -17,7 +20,7 @@ const years = Array.from(
       await page.setViewport({ width: 1280, height: 1024 });
       await page
         .goto(
-          `https://github.com/countnazgul?tab=overview&from=${year}-01-01&to=${year}-12-31`,
+          `https://github.com/${userName}?tab=overview&from=${year}-01-01&to=${year}-12-31`,
           { waitUntil: "networkidle0" }
         )
         .catch((err) => console.log(err));
