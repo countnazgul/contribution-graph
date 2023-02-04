@@ -33,8 +33,13 @@ const years = onlyCurrentYear
   );
   await browser.close();
 
-  const y = years.map((y, i) => ({
-    src: `./images/${y}.png`,
+  const availableFiles = fs.readdirSync("./images");
+
+  if (availableFiles[availableFiles.length - 1] == "combined.png")
+    availableFiles.pop();
+
+  const y = availableFiles.reverse().map((y, i) => ({
+    src: `./images/${y}`,
     x: 0,
     y: i * 115,
   }));
@@ -43,7 +48,7 @@ const years = onlyCurrentYear
     Canvas,
     Image,
     width: 717,
-    height: years.length * 115,
+    height: availableFiles.length * 115,
   }).then((b64) => {
     const buffer = Buffer.from(b64.split(",")[1], "base64");
     fs.writeFileSync("./images/combined.png", buffer);

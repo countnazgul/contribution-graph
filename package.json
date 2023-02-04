@@ -1,7 +1,7 @@
 {
   "name": "github-contributions",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "Generate GitHub contribution image by combining all years graphs into one png",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "canvas": "^2.11.0",
     "merge-images": "^2.0.0",
