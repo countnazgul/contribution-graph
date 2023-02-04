@@ -1,0 +1,30 @@
+name: Data download
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  download-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Install dependencies
+        run: npm install
+      - name: Run npm task
+        run: npm run build
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated commit
+          commit_options: "--no-verify --signoff"
+          file_pattern: "*.png"
+          repository: .
+          status_options: "--untracked-files=no"
+          push_options: "--force"
+          skip_fetch: true
+          skip_checkout: true
