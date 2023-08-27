@@ -1,6 +1,6 @@
 {
   "name": "github-contributions",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Generate GitHub contribution image by combining all years graphs into one png",
   "main": "index.js",
   "scripts": {

@@ -14,7 +14,9 @@ const years = onlyCurrentYear
   : Array.from({ length: totalYears + 1 }, (_, i) => i + startYear).reverse();
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: "new",
+  });
   await Promise.all(
     years.map(async (year) => {
       const page = await browser.newPage();
