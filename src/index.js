@@ -32,8 +32,8 @@ const years = onlyCurrentYear
         },
       ]);
 
-      await page.waitForSelector(".js-calendar-graph-svg");
-      const element = await page.$(".js-calendar-graph-svg");
+      await page.waitForSelector(".js-calendar-graph");
+      const element = await page.$(".js-calendar-graph");
       await element.screenshot({ path: `./images/${year}.png` });
       await page.close();
       console.log(`${year} complete`);

@@ -1,6 +1,6 @@
 {
   "name": "github-contributions",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generate GitHub contribution image by combining all years graphs into one png",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.11.0",
+    "canvas": "^2.11.2",
     "merge-images": "^2.0.0",
-    "puppeteer": "^19.4.1"
+    "puppeteer": "^21.1.0"
   }
 }
